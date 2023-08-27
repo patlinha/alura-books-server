@@ -1,10 +1,11 @@
 const express = require("express") //função que cria servidro express
-const app = express() // chamando a função pra criar o servidor
-const port = 8000 // porta do front = 3000
+const rotaLivro = require("./rotas/livro")
 
-app.get('/', (req, res) => {
-    res.send("Olá mundo da Alura")
-})
+const app = express() // chamando a função pra criar o servidor
+
+app.use('/livros', rotaLivro)
+
+const port = 8000 // porta do front = 3000
 
 app.listen(port, () => {
     console.log(`Escutando a porta ${port}`)
